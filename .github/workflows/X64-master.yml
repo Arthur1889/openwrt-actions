@@ -5,7 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-name: X64-Master
+name: openwrt-19.07
 
 on:
   schedule:
@@ -33,8 +33,8 @@ jobs:
           sudo -E apt-get clean
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/Lienol/openwrt
-        REPO_BRANCH: dev-master
+        REPO_URL: https://github.com/openwrt/openwrt
+        REPO_BRANCH: openwrt-19.07
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -48,10 +48,10 @@ jobs:
           rm -f .config
           cp ../x64-master .config
           
-    - name: Make Defconfig
-      run: |
-          cd openwrt
-          make defconfig
+#    - name: Make Defconfig
+#      run: |
+#          cd openwrt
+#          make defconfig
 
     - name: Make download
       run: |
