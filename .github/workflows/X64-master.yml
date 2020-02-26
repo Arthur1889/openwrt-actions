@@ -10,9 +10,9 @@ name: openwrt-19.07-original
 on:
   schedule:
     - cron: 0 20 * * *
-  push:
-    branches: 
-      - master
+#  push:
+#    branches: 
+#      - master
 
 jobs:
   build:
