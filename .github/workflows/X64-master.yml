@@ -41,7 +41,6 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-      run: cd openwrt && ./scripts/feeds install -a
     
     - name: Costom configure file
       run: |
