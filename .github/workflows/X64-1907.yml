@@ -5,7 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-name: X64-1907
+name: X64-1907-lienol
 
 on:
   schedule:
@@ -33,14 +33,14 @@ jobs:
           sudo -E apt-get clean
     - name: Clone source code
       env: 
-#        REPO_URL: https://github.com/Lienol/openwrt
-        REPO_URL: https://github.com/openwrt/openwrt
-#        REPO_BRANCH: dev-19.07
-        REPO_BRANCH: openwrt-19.07
+        REPO_URL: https://github.com/Lienol/openwrt
+#        REPO_URL: https://github.com/openwrt/openwrt
+        REPO_BRANCH: dev-19.07
+#        REPO_BRANCH: openwrt-19.07
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
       
-    - name: Update feeds
-      run: cd openwrt && echo 'src-git lienol https://github.com/Lienol/openwrt-package'>>./feeds.conf.default
+#    - name: add lienol source
+#      run: cd openwrt && echo 'src-git lienol https://github.com/Lienol/openwrt-package'>>./feeds.conf.default
       
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
